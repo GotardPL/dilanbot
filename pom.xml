@@ -35,9 +35,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.github.aikaterna</groupId>
-            <artifactId>lavaplayer-natives</artifactId>
-            <version>original-SNAPSHOT</version>
+            <groupId>com.github.Walkyst</groupId>
+            <artifactId>lavaplayer-natives-fork</artifactId>
+            <version>1.0.2</version>
         </dependency>
 
         <dependency>
