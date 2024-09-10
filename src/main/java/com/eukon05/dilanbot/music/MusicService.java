@@ -10,6 +10,9 @@ import com.sedmelluq.discord.lavaplayer.player.AudioPlayerManager;
 import com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager;
 import com.sedmelluq.discord.lavaplayer.source.AudioSourceManagers;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
+import dev.lavalink.youtube.clients.AndroidTestsuiteWithThumbnail;
+import dev.lavalink.youtube.clients.MusicWithThumbnail;
+import dev.lavalink.youtube.clients.WebWithThumbnail;
 import org.javacord.api.audio.AudioConnection;
 import org.javacord.api.entity.channel.ServerVoiceChannel;
 import org.javacord.api.entity.server.Server;
@@ -23,7 +26,9 @@ public class MusicService {
     private final AudioPlayerManager playerManager = new DefaultAudioPlayerManager();
 
     public MusicService() {
-        AudioSourceManagers.registerRemoteSources(playerManager);
+        playerManager.registerSourceManager(new dev.lavalink.youtube.YoutubeAudioSourceManager(new MusicWithThumbnail(), new WebWithThumbnail(), new AndroidTestsuiteWithThumbnail()));
+
+        AudioSourceManagers.registerRemoteSources(playerManager, com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioSourceManager.class);
         AudioSourceManagers.registerLocalSource(playerManager);
     }
 
